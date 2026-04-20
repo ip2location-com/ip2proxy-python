@@ -28,6 +28,7 @@ To learn more about installation, usage, and code examples, please visit the dev
 | RES        | Residential Proxies [PX10+]    |
 | CPN        | Consumer Privacy Networks. [PX11+] |
 | EPN        | Enterprise Private Networks. [PX11+] |
+| AIC        | AI Crawler. [PX12] |
 
 ## Usage Type
 
@@ -44,6 +45,7 @@ To learn more about installation, usage, and code examples, please visit the dev
 | MOB        | Mobile ISP                      |
 | DCH        | Data Center/Web Hosting/Transit |
 | SES        | Search Engine Spider            |
+| AIC        | AI Crawler            |
 | RSV        | Reserved                        |
 
 ## Threat Type
