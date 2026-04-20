@@ -1,4 +1,4 @@
-# Copyright (C) 2002-2024 IP2Location.com
+# Copyright (C) 2002-2026 IP2Location.com
 # All Rights Reserved
 #
 # This library is free software: you can redistribute it and/or
@@ -85,7 +85,7 @@ if not hasattr(socket, 'inet_pton'):
         return out_addr_p.raw
     socket.inet_pton = inet_pton
 
-_VERSION = '3.5.1' 
+_VERSION = '3.6.1' 
 _NO_IP = 'MISSING IP ADDRESS'
 _FIELD_NOT_SUPPORTED = 'NOT SUPPORTED'
 _INVALID_IP_ADDRESS  = 'INVALID IP ADDRESS'
@@ -175,7 +175,7 @@ class IP2Proxy(object):
         self._databasesize = struct.unpack('B', header_row[31:32])[0]
         
         # check if is correct BIN (should be 2 for IP2Proxy BIN file), also checking for zipped file (PK being the first 2 chars)
-        # only BINs from Jan 2021 onwards have _dbcolumn and _dbtype
+        # only BINs from Jan 2021 onwards have _productcode
         if ((self._productcode != 2 and self._dbyear >= 21) or (self._dbtype == 80 and self._dbcolumn == 75)):
             self._f.close()
             del self._f
@@ -357,9 +357,9 @@ class IP2Proxy(object):
             fraud_score = rec.fraud_score
             if rec.country_short != _INVALID_IP_ADDRESS:
                 if self._dbtype == 1:
-                    is_proxy = 0 if (rec.country_short == '-') else ( 2 if ((rec.proxy_type == 'DCH') | (rec.proxy_type == 'SES')) else 1)
+                    is_proxy = 0 if (rec.country_short == '-') else ( 2 if ((rec.proxy_type == 'DCH') | (rec.proxy_type == 'SES') | (rec.proxy_type == 'AIC')) else 1)
                 else:
-                    is_proxy = 0 if (rec.proxy_type == '-') else ( 2 if ((rec.proxy_type == 'DCH') | (rec.proxy_type == 'SES')) else 1)
+                    is_proxy = 0 if (rec.proxy_type == '-') else ( 2 if ((rec.proxy_type == 'DCH') | (rec.proxy_type == 'SES') | (rec.proxy_type == 'AIC')) else 1)
             else:
                 is_proxy = -1
         except:

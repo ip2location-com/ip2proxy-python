@@ -1,4 +1,7 @@
-3.5.2	2025-10-31
+3.6.1	2026-04-20
+	* Added support for AIC proxy type for is_proxy field.
+	
+3.6.0	2025-10-31
 	* Added checking logic for zip file.
 	
 3.5.2	2025-10-17
